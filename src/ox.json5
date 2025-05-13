@@ -1,0 +1,50 @@
+{
+    // Enable submodules
+    "submodules": true,
+
+    // Recommended software
+    "recommendations": [
+        "mypy",
+        "cargo",
+        "black",
+        "eslint",
+        "nodejs",
+        "deno"
+    ],
+
+    // Requires OS package manager?
+    "ospkg": {
+        "scoop": true,
+        "chocolatey": true,
+        "winget": true,
+        "brew": true,
+        "linux": true
+    },
+
+    // Recommended packages
+    "packages": {
+        "pip": [
+            "Flask",
+            "Jinja2"
+        ],
+        "npm": [
+            "json5",
+            "vite",
+            "typescript"
+        ],
+        "cargo": [
+            "serde",
+            "hashbrown",
+            "anyhow"
+        ]
+    },
+
+    // Recommended OSes
+    "os": [
+        "win",
+        "openbsd",
+        "macos",
+        "unixlike",
+        "linux"
+    ]
+}
