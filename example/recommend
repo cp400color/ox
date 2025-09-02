@@ -16,3 +16,6 @@ dont recommend flake8
 dont env raw
 
 dont git nosubmodules
+
+# this will disable automatically checking if installed:
+# dont check
