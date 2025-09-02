@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+ox run cmake
+ox run make
+
+ox run package linux
+ox run package windows
+ox run package macos

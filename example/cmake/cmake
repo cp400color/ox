@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# ..cmake script here..
+
+echo "CMake ran"
