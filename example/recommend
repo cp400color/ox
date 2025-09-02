@@ -1,0 +1,21 @@
+recommend pip "python"
+recommend pytype "good type checking" or mypy "bad type checking"
+recommend pytest
+recommend pylint
+
+os linux "lf" or macos "lf"
+env venv # they don't always need reasons
+
+git submodules
+
+# and you can not recommend some:
+
+dont os windows
+dont recommend flake8
+
+dont env raw
+
+dont git nosubmodules
+
+# this will disable automatically checking if installed:
+# dont check
