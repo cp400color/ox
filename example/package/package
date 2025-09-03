@@ -4,6 +4,6 @@
 
 echo "building package for os $1"
 
-ox subdo $1
+ox do package $1
 
 echo "done"
