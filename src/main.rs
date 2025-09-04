@@ -19,6 +19,11 @@ fn main() {
                         .help("Define the script to be ran inside a folder")
                         .required(false)
                 )
+                .arg(
+                    arg!([EXTRAS] ...)
+                        .help("Arguments passed to git")
+                        .trailing_var_arg(true)
+                )
         
         )
         .subcommand(
