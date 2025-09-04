@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-# ...package stuff...
-
-echo "building package for os $1"
-
-ox run package $1
-
-echo "done"
