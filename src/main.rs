@@ -21,7 +21,7 @@ fn main() {
                 )
                 .arg(
                     arg!([EXTRAS] ...)
-                        .help("Arguments passed to git")
+                        .help("Arguments passed to the script")
                         .trailing_var_arg(true)
                 )
         
