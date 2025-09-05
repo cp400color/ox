@@ -1,9 +1,9 @@
 use anstyle::Style;
 
 fn get_script_path(script: Option<&String>, subscript: Option<&String>) -> String {
-    let root = ".ox/";
-    let folder = script.unwrap();
-    let file = match subscript {
+    let root: &'static str = ".ox/";
+    let folder: &String = script.unwrap();
+    let file: String = match subscript {
         Some(script) => format!("/{}", script),
         None => "".to_string()
     };
