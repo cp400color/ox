@@ -1,4 +1,5 @@
 use clap::{arg, command, Command};
+mod commands;
 
 fn build_cli() -> Command {
     command!()
@@ -54,4 +55,17 @@ fn build_cli() -> Command {
 fn main() {
     let matches = build_cli().get_matches();
     
+    match matches.subcommand() {
+        Some(("run", sub_matches)) => commands::run::run(
+            sub_matches.get_one::<String>("SCRIPT"),
+            sub_matches.get_one::<String>("SUBSCRIPT"),
+        ),
+        Some(("recommend", sub_matches)) => commands::recommend::recommend(
+            sub_matches.get_flag("CHECK"),
+        ),
+        Some(("clone", sub_matches)) => commands::clone::clone(
+            sub_matches.get_one::<String>("REPOSITORY")
+        ),
+        _ => unreachable!("Exhausted list of subcommands and subcommand_required prevents `None`"),
+    }
 }
