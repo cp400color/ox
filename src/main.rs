@@ -66,6 +66,7 @@ fn main() {
         Some(("run", sub_matches)) => commands::run::run(
             sub_matches.get_one::<String>("SCRIPT"),
             sub_matches.get_one::<String>("SUBSCRIPT"),
+            sub_matches.get_many::<String>("EXTRAS")
         ),
         Some(("recommend", sub_matches)) => commands::recommend::recommend(
             sub_matches.get_flag("CHECK"),
