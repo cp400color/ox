@@ -6,11 +6,10 @@ pub fn clone(repository: Option<&String>, threads: Option<&i32>, extras: Option<
     const BOLD_STYLE: Style = Style::new().bold();
     let repository: &String = repository.unwrap();
     let threads = threads.unwrap();
-    // TODO: MAKE EXTRAS WORK
-    // let args = match extras {
-    //     Some(_) => extras.unwrap().map(|s| s.as_str()),
-    //     None => ""
-    // };
+    let args = match extras {
+        Some(_) => extras.unwrap().collect(),
+        None => vec!()
+    };
 
     println!("Cloning {BOLD_STYLE}{repository}{BOLD_STYLE:#} with {BOLD_STYLE}{threads}{BOLD_STYLE:#} thread{}...", if threads == &(1 as i32) {""} else {"s"});
 
@@ -19,6 +18,7 @@ pub fn clone(repository: Option<&String>, threads: Option<&i32>, extras: Option<
         .arg(repository)
         .arg("--recurse-submodules")
         .arg(format!("-j{threads}"))
+        .args(args)
         .output()
         .expect("failed to execute process");
 }
