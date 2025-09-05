@@ -1,7 +1,7 @@
 use clap::{arg, command, Command};
 
-fn main() {
-    let _matches = command!()
+fn build_cli() -> Command {
+    command!()
         .propagate_version(true)
         .subcommand_required(true)
         .arg_required_else_help(true)
@@ -12,19 +12,18 @@ fn main() {
                 .arg(
                     arg!(<SCRIPT>)
                         .help("Define the folder or script to be ran")
-                        .required(true)
+                        .required(true),
                 )
                 .arg(
                     arg!([SUBSCRIPT])
                         .help("Define the script to be ran inside a folder")
-                        .required(false)
+                        .required(false),
                 )
                 .arg(
                     arg!([EXTRAS] ...)
                         .help("Arguments passed to the script")
-                        .trailing_var_arg(true)
-                )
-        
+                        .trailing_var_arg(true),
+                ),
         )
         .subcommand(
             Command::new("recommend")
@@ -32,8 +31,8 @@ fn main() {
                 .arg(
                     arg!(--check)
                         .help("Check if recommendations are installed")
-                        .required(false)
-                )
+                        .required(false),
+                ),
         )
         .subcommand(
             Command::new("clone")
@@ -42,13 +41,17 @@ fn main() {
                 .arg(
                     arg!([REPOSITORY])
                         .help("Repository to clone")
-                        .required(true)
+                        .required(true),
                 )
                 .arg(
                     arg!([EXTRAS] ...)
                         .help("Arguments passed to git")
-                        .trailing_var_arg(true)
-                )
+                        .trailing_var_arg(true),
+                ),
         )
-        .get_matches();
+}
+
+fn main() {
+    let matches = build_cli().get_matches();
+    
 }
