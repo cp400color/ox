@@ -1,3 +1,5 @@
+use anstyle::Style;
+
 fn get_script_path(script: Option<&String>, subscript: Option<&String>) -> String {
     let root = ".ox/";
     let folder = script.unwrap();
@@ -9,6 +11,6 @@ fn get_script_path(script: Option<&String>, subscript: Option<&String>) -> Strin
     return format!("{}{}{}", root, folder, file)
 }
 
-pub fn run(script: Option<&String>, subscript: Option<&String>) {
-    let path = get_script_path(script, subscript);
+    const BOLD_STYLE: Style = Style::new().bold();
+
 }
