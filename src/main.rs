@@ -1,4 +1,4 @@
-use clap::{arg, command, Command};
+use clap::{arg, command, Command, value_parser, ArgAction};
 mod commands;
 
 fn build_cli() -> Command {
@@ -45,9 +45,16 @@ fn build_cli() -> Command {
                         .required(true),
                 )
                 .arg(
+                    arg!(-j --threads)
+                        .help("Number of threads")
+                        .value_parser(value_parser!(i32))
+                        .default_value("1")
+                        .action(ArgAction::Set)
+                )
+                .arg(
                     arg!([EXTRAS] ...)
                         .help("Arguments passed to git")
-                        .trailing_var_arg(true),
+                        .trailing_var_arg(true)
                 ),
         )
 }
@@ -64,7 +71,9 @@ fn main() {
             sub_matches.get_flag("CHECK"),
         ),
         Some(("clone", sub_matches)) => commands::clone::clone(
-            sub_matches.get_one::<String>("REPOSITORY")
+            sub_matches.get_one::<String>("REPOSITORY"),
+            sub_matches.get_one::<i32>("threads"),
+            sub_matches.get_many::<String>("EXTRAS")
         ),
         _ => unreachable!("Exhausted list of subcommands and subcommand_required prevents `None`"),
     }
