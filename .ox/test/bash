@@ -1,0 +1,12 @@
+#!/usr/bin/env fish
+
+echo "pwd (program) = $(pwd)"
+echo "bash (dollar BASH) = ${BASH}"
+echo "bash env (dollar BASH_ENV) = ${BASH_ENV}"
+echo "bash pid (dollar BASHPID) = ${BASHPID}"
+echo "pid (dollar dollar) = $$"
+echo "bash ver: ${BASH_VERSION}"
+
+echo
+
+echo "bash subshell (dollar BASH_SUBSHELL) = ${BASH_SUBSHELL}"
