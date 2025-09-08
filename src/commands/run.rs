@@ -24,8 +24,16 @@ pub fn run(script: Option<&String>, subscript: Option<&String>, extras: Option<V
         None => vec!()
     };
 
-    Command::new(path)
-        .args(args)
-        .output()
-        .expect("failed to execute process");
+    if cfg!(target_os = "windows") {
+        Command::new(path)
+            .args(args)
+            .status()
+            .expect("failed to execute process");
+    } else {
+        Command::new("bash")
+            .arg(path)
+            .args(args)
+            .status()
+            .expect("failed to execute process");
+    }
 }
