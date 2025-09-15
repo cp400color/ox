@@ -1,3 +1,3 @@
-pub fn recommend(check: bool) {
+pub fn recommend() {
 
 }

@@ -28,12 +28,7 @@ fn build_cli() -> Command {
         )
         .subcommand(
             Command::new("recommend")
-                .about("List recommended software")
-                .arg(
-                    arg!(--check)
-                        .help("Check if recommendations are installed")
-                        .required(false),
-                ),
+                .about("List and check recommended software")
         )
         .subcommand(
             Command::new("clone")
@@ -68,9 +63,7 @@ fn main() {
             sub_matches.get_one::<String>("SUBSCRIPT"),
             sub_matches.get_many::<String>("EXTRAS")
         ),
-        Some(("recommend", sub_matches)) => commands::recommend::recommend(
-            sub_matches.get_flag("CHECK"),
-        ),
+        Some(("recommend", sub_matches)) => commands::recommend::recommend(),
         Some(("clone", sub_matches)) => commands::clone::clone(
             sub_matches.get_one::<String>("REPOSITORY"),
             sub_matches.get_one::<i32>("threads"),

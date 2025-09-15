@@ -19,6 +19,3 @@ dont recommend mypy
 dont env raw
 
 dont git nosubmodules
-
-# this will disable automatically checking if installed:
-# dont check
