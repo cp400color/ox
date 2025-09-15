@@ -1,3 +1,5 @@
+pm pip
+pm pacman 
 recommend pip "python"
 recommend pytype "good type checking"
 recommend pytest
@@ -6,8 +8,6 @@ recommend black
 
 os linux "lf" or macos "lf"
 env venv # they don't always need reasons
-
-git submodules
 
 # and you can not recommend some:
 
@@ -18,4 +18,3 @@ dont recommend mypy
 
 dont env raw
 
-dont git nosubmodules
