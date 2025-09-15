@@ -63,7 +63,7 @@ fn main() {
             sub_matches.get_one::<String>("SUBSCRIPT"),
             sub_matches.get_many::<String>("EXTRAS")
         ),
-        Some(("recommend", sub_matches)) => commands::recommend::recommend(),
+        Some(("recommend", _)) => commands::recommend::recommend(),
         Some(("clone", sub_matches)) => commands::clone::clone(
             sub_matches.get_one::<String>("REPOSITORY"),
             sub_matches.get_one::<i32>("threads"),
