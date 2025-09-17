@@ -14,7 +14,6 @@ enum Command {
 #[allow(dead_code)]
 #[derive(Debug)]
 enum ASTItem {
-    Empty,
     Command(Command),
     Negative(Command),
     Or(Command, Command)
@@ -38,7 +37,6 @@ pub fn recommend() {
 
     for line in oxfile.split("\n") {
         if line == "" {
-            ast.insert(ast.len(), ASTItem::Empty);
             continue;
         }
         
