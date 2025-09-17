@@ -16,5 +16,5 @@ dont recommend flake8
 
 dont recommend mypy
 
-dont env raw
+dont env none
 
