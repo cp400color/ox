@@ -16,7 +16,7 @@ enum Command {
 enum ASTItem {
     Command(Command),
     Negative(Command),
-    Or(Command, Command)
+    Or(Vec<Command>)
 }
 
 pub fn recommend() {
